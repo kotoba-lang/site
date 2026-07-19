@@ -1,0 +1,49 @@
+{
+  "name": "kotodama-w3bpg001",
+  "main": "svelte/.svelte-kit/cloudflare/_worker.js",
+  "compatibility_date": "2025-03-17",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "nodejs_als"
+  ],
+  "vars": {
+    "APP_ACTOR_HANDLE": "webpage",
+    "APP_CAPABILITIES": "[\"crawl-intelligence\",\"topic-routing\",\"page-did-archive\",\"link-graph-analytics\",\"stream-pages\",\"bulk-catalog-ingest\",\"wet-extraction\",\"wat-metadata\",\"visual-capture\",\"common-crawl-seed\",\"pdf-ingest\",\"text-embedding\",\"visual-embedding\"]",
+    "APP_DEPLOY_AT": "2026-04-30T23:25:43Z",
+    "APP_DEPLOY_SHA": "bf5f6da3e88",
+    "APP_DESCRIPTION": "Internet Clone Gateway — sole web fetch gateway. DNS-domain DID archive, WET/WAT/WebP output. Follow topic DIDs for selective routing.",
+    "APP_DISPLAY_NAME": "Site Intelligence",
+    "APP_FRAMEWORK": "sveltekit-edge-bff",
+    "APP_NANOID": "w3bpg001",
+    "APP_PERFORMER_TYPE": "service",
+    "APP_SOURCE": "",
+    "APP_TEMPLATE": "",
+    "APP_UI_TYPE": "yoro",
+    "APP_VERSION": "1.1.0",
+    "AGENTGATEWAY_MCP_ROUTER_URL": "https://mcp.etzhayyim.com/xrpc/com.etzhayyim.mcp.message"
+  },
+  "rules": [
+    {
+      "type": "CompiledWasm",
+      "globs": [
+        "**/*.wasm"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "pattern": "w3bpg001.etzhayyim.com/*",
+      "zone_name": "etzhayyim.com"
+    },
+    {
+      "pattern": "site.etzhayyim.com/*",
+      "zone_name": "etzhayyim.com"
+    }
+  ],
+  "assets": {
+    "directory": "./svelte/.svelte-kit/cloudflare/client",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  }
+}

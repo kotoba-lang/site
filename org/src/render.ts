@@ -5,9 +5,11 @@ import {
   FREEBUFF_BOOTSTRAP,
   GITHUB_HREF,
   INSTALL_COMMAND,
+  PLAY_BOOT_URL,
   PLAY_HREF,
+  PLAY_WASM_SHA256,
+  PLAY_WASM_URL,
   WASM_WEBCOMPONENT_DEMOS,
-  playAndHooksScript,
   playSource,
 } from "./play.ts";
 
@@ -70,6 +72,7 @@ h1{font-size:1.75rem;line-height:1.3;margin:.4rem 0}
 #kot-install-command{flex:1 1 12rem;margin:0;padding:.55rem .7rem;overflow:auto;background:#f4f4f4;font-size:.85rem}
 @media (prefers-color-scheme:dark){#kot-install-command{background:#111}}
 .play-source{width:100%;min-height:6.5rem;box-sizing:border-box;font-family:ui-monospace,monospace;font-size:.85rem;padding:.6rem;direction:ltr;text-align:left}
+.play-host{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
 .play-actions{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:.75rem}
 button{min-height:44px;padding:.4rem .9rem;font:inherit;cursor:pointer}
 .switcher details{position:relative}
@@ -92,10 +95,11 @@ function firstView(catalog: Catalog): string {
         </div>
         <p class="hint">${escapeHtml(catalog.installHint)}</p>
       </div>
-      <div class="play" id="play">
+      <div class="play" id="play" data-wasm="${escapeHtml(PLAY_WASM_URL)}" data-sha="${escapeHtml(PLAY_WASM_SHA256)}">
         <p><strong>${escapeHtml(catalog.playTitle)}</strong></p>
         <p class="hint">${escapeHtml(catalog.playCaption)}</p>
         <textarea class="play-source" id="kot-play-source" spellcheck="false" translate="no" dir="ltr" readonly>${escapeHtml(source)}</textarea>
+        <div id="kot-play-host" class="play-host" aria-hidden="true"></div>
         <div class="play-actions">
           <button type="button" id="kot-play-run">${escapeHtml(catalog.playRun)}</button>
           <p id="kot-play-status" role="status" aria-live="polite" data-verifying="${escapeHtml(catalog.playVerifying)}" data-success="${escapeHtml(catalog.playSuccess)}" data-error="${escapeHtml(catalog.playError)}">${escapeHtml(catalog.playReady)}</p>
@@ -144,7 +148,7 @@ ${hreflangLinks(tag, pagePath)}
     <p><a data-micro="github" href="${escapeHtml(GITHUB_HREF)}">${escapeHtml(catalog.browseRepo)}</a> (${escapeHtml(catalog.github)})</p>
     <p class="note">${escapeHtml(catalog.authorityNote)}</p>
   </main>
-  <script>${playAndHooksScript()}</script>
+  <script type="module" src="${escapeHtml(PLAY_BOOT_URL)}"></script>
 </body>
 </html>
 `;

@@ -47,6 +47,7 @@ h1{font-size:1.75rem;line-height:1.3;margin:.4rem 0}
 #kot-install-command{flex:1 1 12rem;margin:0;padding:.55rem .7rem;overflow:auto;background:#f4f4f4;font-size:.85rem}
 @media (prefers-color-scheme:dark){#kot-install-command{background:#111}}
 .play-source{width:100%;min-height:6.5rem;box-sizing:border-box;font-family:ui-monospace,monospace;font-size:.85rem;padding:.6rem;direction:ltr;text-align:left}
+.play-host{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
 .play-actions{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:.75rem}
 button{min-height:44px;padding:.4rem .9rem;font:inherit;cursor:pointer}
 .switcher details{position:relative}
@@ -110,7 +111,7 @@ code,pre{font-family:ui-monospace,monospace}</style>
         </div>
         <p class="hint">Instalación Homebrew en una línea. Luego ejecuta kotoba selfhost check --json en local.</p>
       </div>
-      <div class="play" id="play">
+      <div class="play" id="play" data-wasm="/play/double-21.wasm" data-sha="99d43eb26371891bcca2f1fc8a48b3ad47f3350e50c50a3b7ae95b2daeafc214">
         <p><strong>Play</strong></p>
         <p class="hint">Artefacto demo ligado a digest: el navegador pide 344 bytes, verifica SHA-256, rechaza imports y llama main(). Esperado 42. No es un compilador en el navegador.</p>
         <textarea class="play-source" id="kot-play-source" spellcheck="false" translate="no" dir="ltr" readonly>;; W1 pure representative: ordinary Clojure-shaped values/functions only.
@@ -122,6 +123,7 @@ code,pre{font-family:ui-monospace,monospace}</style>
 (defn main []
   (double 21))
 </textarea>
+        <div id="kot-play-host" class="play-host" aria-hidden="true"></div>
         <div class="play-actions">
           <button type="button" id="kot-play-run">Ejecutar</button>
           <p id="kot-play-status" role="status" aria-live="polite" data-verifying="Verificando artefacto…" data-success="Kotoba devolvió {result} · SHA-256 verificado · 0 imports" data-error="No se pudo ejecutar: ">Listo. Aún no se ha ejecutado código.</p>
@@ -139,16 +141,6 @@ code,pre{font-family:ui-monospace,monospace}</style>
     <p><a data-micro="github" href="https://github.com/kotoba-lang/kotoba-lang">Abrir el repositorio del lenguaje</a> (GitHub)</p>
     <p class="note">Las cifras medidas del host y los bindings de implementation-release permanecen en las autoridades del repositorio kotoba-lang. Esta página de locale no inventa GMV, una URL de Release del lenguaje ni recuentos de tracción de clientes.</p>
   </main>
-  <script>document.addEventListener('DOMContentLoaded',function(){
-function convert(name){try{var clickId=new URLSearchParams(location.search).get('bfcid');if(window.freebuff&&clickId){window.freebuff('conversion',name,{eventId:clickId+':'+name});}}catch(e){}}
-var button=document.getElementById('kot-play-run');
-var status=document.getElementById('kot-play-status');
-var expected='99d43eb26371891bcca2f1fc8a48b3ad47f3350e50c50a3b7ae95b2daeafc214';
-function hex(bytes){return Array.from(bytes,function(b){return b.toString(16).padStart(2,'0');}).join('');}
-if(button&&status){button.addEventListener('click',async function(){button.disabled=true;status.textContent=status.dataset.verifying;try{var response=await fetch('/play/double-21.wasm',{cache:'no-store'});if(!response.ok)throw new Error('artifact fetch failed: HTTP '+response.status);var bytes=new Uint8Array(await response.arrayBuffer());var digest=hex(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)));if(digest!==expected)throw new Error('artifact digest mismatch');var module=await WebAssembly.compile(bytes);if(WebAssembly.Module.imports(module).length!==0)throw new Error('demo artifact requested a host import');var instance=await WebAssembly.instantiate(module,{});var result=instance.exports.main();if(result!==42n)throw new Error('unexpected result');status.textContent=status.dataset.success.replace('{result}',result.toString());convert('trial_started');}catch(error){status.textContent=status.dataset.error+error.message;}finally{button.disabled=false;}});}
-var copy=document.getElementById('kot-install-copy');var cmd=document.getElementById('kot-install-command');
-if(copy&&cmd){copy.addEventListener('click',async function(){try{await navigator.clipboard.writeText(cmd.textContent||'');copy.textContent=copy.dataset.copied;convert('cli_copy');}catch(e){}});}
-document.addEventListener('click',function(event){var a=event.target.closest&&event.target.closest('a');if(!a)return;if(a.dataset.micro==='docs')convert('docs_view');if(a.dataset.micro==='github')convert('github_click');});
-});</script>
+  <script type="module" src="/play/play-boot.js"></script>
 </body>
 </html>

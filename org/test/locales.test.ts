@@ -150,10 +150,9 @@ describe("path + catalogs + hreflang emit", () => {
       assert.ok(html.includes("/play/"), tag);
       assert.ok(html.includes("defn double"), tag);
       assert.ok(html.includes("freebuff-tag.js"), tag);
-      assert.ok(html.includes("trial_started"), tag);
-      assert.ok(html.includes("docs_view"), tag);
-      assert.ok(html.includes("github_click"), tag);
-      assert.ok(html.includes("cli_copy"), tag);
+      assert.ok(html.includes('type="module" src="/play/play-boot.js"'), tag);
+      assert.ok(html.includes('data-sha="'), tag);
+      assert.ok(html.includes('id="kot-play-host"'), tag);
       assert.equal(/GMV \$/.test(html), false, tag);
       assert.ok(html.includes("Not an in-browser compiler") || html.includes("digest") || html.includes("SHA-256"), tag);
     }

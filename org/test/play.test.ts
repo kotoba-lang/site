@@ -5,6 +5,7 @@ import { join } from "node:path";
 import { describe, it } from "node:test";
 import { generatePages, publicDir } from "../src/generate.ts";
 import {
+  PLAY_ELEMENT_SHA256,
   PLAY_FILES,
   PLAY_SOURCE_SHA256,
   PLAY_WASM_SHA256,
@@ -20,6 +21,9 @@ describe("reused Play artifact", () => {
     assert.equal(createHash("sha256").update(source).digest("hex"), PLAY_SOURCE_SHA256);
     assert.equal(wasm.byteLength, 344);
     assert.ok(playSource().includes("(double 21)"));
+    const element = readFileSync(join(playDir(), "kotoba-wasm-element.js"));
+    assert.equal(createHash("sha256").update(element).digest("hex"), PLAY_ELEMENT_SHA256);
+    assert.ok(element.includes("export class KotobaWasmElement"));
   });
 
   it("instantiates the reused wasm and returns 42 without imports", async () => {
@@ -43,5 +47,12 @@ describe("reused Play artifact", () => {
     assert.ok(playPage.includes('rel="canonical" href="https://kotoba-lang.org/play/"'));
     assert.ok(playPage.includes('id="play"'));
     assert.ok(playPage.includes('id="install"'));
+    const boot = readFileSync(join(publicDir(), "play", "play-boot.js"), "utf8");
+    assert.ok(boot.includes("from \"./kotoba-wasm-element.js\""));
+    assert.ok(boot.includes("trial_started"));
+    assert.ok(boot.includes("docs_view"));
+    assert.ok(boot.includes("github_click"));
+    assert.ok(boot.includes("cli_copy"));
+    assert.equal(/GMV/.test(boot), false);
   });
 });

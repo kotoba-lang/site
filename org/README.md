@@ -35,8 +35,10 @@ This pull request does **not** deploy. Do not treat these pages as live.
   344 bytes, SHA-256 checked before instantiate). Wide layouts put install
   and Play side by side. `/play/` is a 200 page (bare `/play` 308s there) so
   the live 404 is not repeated. Extra demos link the existing
-  wasm-webcomponent GitHub Pages examples. This is not a new in-browser
-  compiler.
+  wasm-webcomponent GitHub Pages examples. The in-page runner vendors
+  `KotobaWasmElement` (`org/play/kotoba-wasm-element.js`, Apache-2.0) and
+  still verifies the checked-in wasm digest before instantiate. This is
+  not a new in-browser compiler.
 - Freebuff micro-conversions (`docs_view`, `github_click`, `cli_copy`,
   existing `trial_started`) fire only when `bfcid` is present. No GMV events.
 

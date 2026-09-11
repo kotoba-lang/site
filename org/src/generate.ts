@@ -21,6 +21,10 @@ export const PUBLIC_HEADERS = `# kotoba-lang-org locale pages.
   Cache-Control: public, max-age=86400, must-revalidate
   Content-Type: application/wasm
 
+/play/*.js
+  Cache-Control: public, max-age=86400, must-revalidate
+  Content-Type: text/javascript; charset=utf-8
+
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: same-origin

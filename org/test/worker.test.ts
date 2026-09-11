@@ -23,7 +23,9 @@ function assetsEnv(): Env {
             ? "application/wasm"
             : path.endsWith(".html")
               ? "text/html; charset=utf-8"
-              : "application/octet-stream";
+              : path.endsWith(".js")
+                ? "text/javascript; charset=utf-8"
+                : "application/octet-stream";
           return new Response(body, { headers: { "content-type": type } });
         } catch {
           return new Response("not found", { status: 404 });
@@ -110,6 +112,10 @@ describe("Worker negotiate before static cache pin", () => {
     assert.ok(body.includes('id="play"'));
     assert.ok(body.includes('id="install"'));
     assert.ok(body.includes("/play/double-21.wasm"));
+    assert.ok(body.includes("/play/play-boot.js"));
+    const boot = await handleRequest(request("/play/play-boot.js"), env);
+    assert.equal(boot.status, 200);
+    assert.ok((await boot.text()).includes("KotobaWasmElement"));
     const bare = await handleRequest(request("/play"), env);
     assert.equal(bare.status, 308);
     assert.equal(bare.headers.get("Location"), "/play/");

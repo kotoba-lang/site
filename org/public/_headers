@@ -9,6 +9,10 @@
   CDN-Cache-Control: no-store
   Vary: Accept-Language, Cookie, CF-IPCountry
 
+/play/double-21.wasm
+  Cache-Control: public, max-age=86400, must-revalidate
+  Content-Type: application/wasm
+
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: same-origin

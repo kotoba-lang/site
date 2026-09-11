@@ -12,7 +12,8 @@ import {
   localeFromPath,
   localePath,
 } from "../src/locales.ts";
-import { emitTags, hreflangLinks, renderPage } from "../src/render.ts";
+import { INSTALL_COMMAND, PLAY_WASM_SHA256, PLAY_WASM_URL } from "../src/play.ts";
+import { emitTags, escapeHtml, hreflangLinks, renderPage } from "../src/render.ts";
 
 describe("locale registry (ADR-2609091700 + expansion)", () => {
   it("keeps the shipped public-site tags and adds jv, su, he, it, ar-MA", () => {
@@ -128,5 +129,33 @@ describe("path + catalogs + hreflang emit", () => {
   it("lists the same hreflang set the pages emit", () => {
     const head = hreflangLinks("id");
     assert.ok(hreflangTags().every((tag) => head.includes(`hreflang="${tag}"`)));
+  });
+
+  it("puts one-line install and digest-bound Play above the fold on every locale", () => {
+    for (const tag of LOCALES.map((item) => item.tag)) {
+      const html = renderPage(tag, catalogs[tag]);
+      const installAt = html.indexOf('id="install"');
+      const playAt = html.indexOf('class="play" id="play"');
+      const titleAt = html.indexOf("<h1>");
+      const leadAt = html.indexOf('class="lead"');
+      assert.ok(
+        installAt > 0 && playAt > installAt && titleAt > playAt && leadAt > titleAt,
+        `${tag} install=${installAt} play=${playAt} title=${titleAt} lead=${leadAt}`,
+      );
+      assert.ok(html.includes(escapeHtml(INSTALL_COMMAND)), tag);
+      assert.ok(html.includes('id="kot-install-copy"'), tag);
+      assert.ok(html.includes(PLAY_WASM_URL), tag);
+      assert.ok(html.includes(PLAY_WASM_SHA256), tag);
+      assert.ok(html.includes("wasm-webcomponent"), tag);
+      assert.ok(html.includes("/play/"), tag);
+      assert.ok(html.includes("defn double"), tag);
+      assert.ok(html.includes("freebuff-tag.js"), tag);
+      assert.ok(html.includes("trial_started"), tag);
+      assert.ok(html.includes("docs_view"), tag);
+      assert.ok(html.includes("github_click"), tag);
+      assert.ok(html.includes("cli_copy"), tag);
+      assert.equal(/GMV \$/.test(html), false, tag);
+      assert.ok(html.includes("Not an in-browser compiler") || html.includes("digest") || html.includes("SHA-256"), tag);
+    }
   });
 });

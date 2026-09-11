@@ -68,6 +68,16 @@ export async function handleRequest(request: IncomingRequest, env: Env): Promise
   const url = new URL(request.url);
   const { pathname } = url;
 
+  if (pathname === "/play") {
+    return new Response(null, {
+      status: 308,
+      headers: {
+        Location: "/play/",
+        "Cache-Control": "public, max-age=86400",
+      },
+    });
+  }
+
   if (isPassthroughAsset(pathname)) {
     return env.ASSETS.fetch(request);
   }

@@ -9,5 +9,18 @@
   "noMatching": "Euweuh basa anu cocog",
   "github": "GitHub",
   "browseRepo": "Buka gudang basa",
-  "authorityNote": "Angka host nu diukur jeung binding implementation-release tetep dina otoritas gudang kotoba-lang. Kaca locale ieu teu nyiptakeun GMV, URL Release basa, atawa jumlah traksi palanggan."
+  "authorityNote": "Angka host nu diukur jeung binding implementation-release tetep dina otoritas gudang kotoba-lang. Kaca locale ieu teu nyiptakeun GMV, URL Release basa, atawa jumlah traksi palanggan.",
+  "installLabel": "Pasang",
+  "installHint": "Pasang Homebrew sajajar. Tuluy jalankeun kotoba selfhost check --json di lokal.",
+  "copy": "Salin",
+  "copied": "Kasalin",
+  "playTitle": "Play",
+  "playCaption": "Artefak demo nu diiket digest: browser nyokot 344 byte, verifikasi SHA-256, nampik import, nyauran main(). Diharepkeun 42. Sanes compiler di jero browser.",
+  "playRun": "Jalankeun",
+  "playReady": "Siap. Can aya kode nu dijalankeun.",
+  "playVerifying": "Ngecek artefak…",
+  "playSuccess": "Kotoba mulangkeun {result} · SHA-256 diverifikasi · 0 import",
+  "playError": "Teu bisa dijalankeun: ",
+  "playDemos": "Demo wasm-webcomponent interaktif (lain compiler):",
+  "docs": "Docs"
 }

@@ -9,5 +9,18 @@
   "noMatching": "কোনো মিল ভাষা নেই",
   "github": "GitHub",
   "browseRepo": "ভাষার রিপোজিটরি খুলুন",
-  "authorityNote": "মাপা হোস্ট সংখ্যা এবং implementation-release বাইন্ডিং kotoba-lang রিপোজিটরি কর্তৃপক্ষেই থাকে। এই লোকেল পাতা GMV, ভাষার Release URL, বা গ্রাহক-ট্র্যাকশন গণনা তৈরি করে না।"
+  "authorityNote": "মাপা হোস্ট সংখ্যা এবং implementation-release বাইন্ডিং kotoba-lang রিপোজিটরি কর্তৃপক্ষেই থাকে। এই লোকেল পাতা GMV, ভাষার Release URL, বা গ্রাহক-ট্র্যাকশন গণনা তৈরি করে না।",
+  "installLabel": "ইনস্টল",
+  "installHint": "এক-লাইন Homebrew ইনস্টল। তারপর স্থানীয়ভাবে kotoba selfhost check --json চালান।",
+  "copy": "কপি",
+  "copied": "কপি হয়েছে",
+  "playTitle": "Play",
+  "playCaption": "ডাইজেস্ট-বাউন্ড ডেমো আর্টিফ্যাক্ট: ব্রাউজার ৩৪৪ বাইট আনে, SHA-256 যাচাই করে, import প্রত্যাখ্যান করে, main() ডাকে। প্রত্যাশিত ৪২। ব্রাউজারের ভিতর কম্পাইলার নয়।",
+  "playRun": "চালান",
+  "playReady": "প্রস্তুত। এখনো কোনো কোড চলেনি।",
+  "playVerifying": "আর্টিফ্যাক্ট যাচাই…",
+  "playSuccess": "Kotoba {result} ফেরত দিল · SHA-256 যাচাই · 0 import",
+  "playError": "চালানো যায়নি: ",
+  "playDemos": "ইন্টারেক্টিভ wasm-webcomponent ডেমো (কম্পাইলার নয়):",
+  "docs": "ডক্স"
 }

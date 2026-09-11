@@ -15,6 +15,19 @@ export interface Catalog {
   github: string;
   browseRepo: string;
   authorityNote: string;
+  installLabel: string;
+  installHint: string;
+  copy: string;
+  copied: string;
+  playTitle: string;
+  playCaption: string;
+  playRun: string;
+  playReady: string;
+  playVerifying: string;
+  playSuccess: string;
+  playError: string;
+  playDemos: string;
+  docs: string;
 }
 
 const REQUIRED_KEYS: (keyof Catalog)[] = [
@@ -29,6 +42,19 @@ const REQUIRED_KEYS: (keyof Catalog)[] = [
   "github",
   "browseRepo",
   "authorityNote",
+  "installLabel",
+  "installHint",
+  "copy",
+  "copied",
+  "playTitle",
+  "playCaption",
+  "playRun",
+  "playReady",
+  "playVerifying",
+  "playSuccess",
+  "playError",
+  "playDemos",
+  "docs",
 ];
 
 export function catalogsDir(): string {

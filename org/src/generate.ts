@@ -1,8 +1,9 @@
-import { mkdirSync, writeFileSync } from "node:fs";
+import { copyFileSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadAllCatalogs } from "./catalog.ts";
 import { DEFAULT_LOCALE, LOCALES } from "./locales.ts";
+import { PLAY_FILES, PLAY_HREF, playDir } from "./play.ts";
 import { renderPage } from "./render.ts";
 
 export const PUBLIC_HEADERS = `# kotoba-lang-org locale pages.
@@ -15,6 +16,10 @@ export const PUBLIC_HEADERS = `# kotoba-lang-org locale pages.
   Cache-Control: private, no-cache
   CDN-Cache-Control: no-store
   Vary: Accept-Language, Cookie, CF-IPCountry
+
+/play/double-21.wasm
+  Cache-Control: public, max-age=86400, must-revalidate
+  Content-Type: application/wasm
 
 /*
   X-Content-Type-Options: nosniff
@@ -32,6 +37,15 @@ export function generatePages(outDir = publicDir()): string[] {
   mkdirSync(outDir, { recursive: true });
   writeFileSync(join(outDir, "_headers"), PUBLIC_HEADERS);
   written.push("_headers");
+
+  const playOut = join(outDir, "play");
+  mkdirSync(playOut, { recursive: true });
+  for (const name of PLAY_FILES) {
+    copyFileSync(join(playDir(), name), join(playOut, name));
+    written.push(join("play", name));
+  }
+  writeFileSync(join(playOut, "index.html"), renderPage(DEFAULT_LOCALE, catalogs[DEFAULT_LOCALE], PLAY_HREF));
+  written.push("play/index.html");
 
   for (const locale of LOCALES) {
     const html = renderPage(locale.tag, catalogs[locale.tag], "/");

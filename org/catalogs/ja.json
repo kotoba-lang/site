@@ -9,5 +9,18 @@
   "noMatching": "一致する言語がありません",
   "github": "GitHub",
   "browseRepo": "言語リポジトリを開く",
-  "authorityNote": "実測ホスト数値と implementation-release の束縛は kotoba-lang リポジトリの権威ファイルに残します。このロケールページは GMV、言語 Release URL、顧客トラクション数を捏造しません。"
+  "authorityNote": "実測ホスト数値と implementation-release の束縛は kotoba-lang リポジトリの権威ファイルに残します。このロケールページは GMV、言語 Release URL、顧客トラクション数を捏造しません。",
+  "installLabel": "インストール",
+  "installHint": "Homebrew 一行インストール。その後ローカルで kotoba selfhost check --json。",
+  "copy": "コピー",
+  "copied": "コピーしました",
+  "playTitle": "Play",
+  "playCaption": "ダイジェスト固定のデモ成果物: ブラウザが 344 バイトを取得し、SHA-256 を検証し、import を拒否し、main() を呼びます。期待値 42。ブラウザ内コンパイラではありません。",
+  "playRun": "実行",
+  "playReady": "準備完了。まだコードは走っていません。",
+  "playVerifying": "成果物を検証中…",
+  "playSuccess": "Kotoba は {result} を返した · SHA-256 検証済み · import 0",
+  "playError": "実行できません: ",
+  "playDemos": "インタラクティブな wasm-webcomponent デモ（コンパイラではありません）:",
+  "docs": "Docs"
 }

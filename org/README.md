@@ -30,6 +30,15 @@ This pull request does **not** deploy. Do not treat these pages as live.
 - `/` responses set `CDN-Cache-Control: no-store` and
   `Vary: Accept-Language, Cookie, CF-IPCountry`. Locale-prefixed paths stay
   publicly revalidatable.
+- First view (every locale), above the title/lead: one-line Homebrew install
+  plus the existing digest-bound Play artifact (`org/play/double-21.wasm`,
+  344 bytes, SHA-256 checked before instantiate). Wide layouts put install
+  and Play side by side. `/play/` is a 200 page (bare `/play` 308s there) so
+  the live 404 is not repeated. Extra demos link the existing
+  wasm-webcomponent GitHub Pages examples. This is not a new in-browser
+  compiler.
+- Freebuff micro-conversions (`docs_view`, `github_click`, `cli_copy`,
+  existing `trial_started`) fire only when `bfcid` is present. No GMV events.
 
 ## Cloudflare deploy (human / Jun)
 

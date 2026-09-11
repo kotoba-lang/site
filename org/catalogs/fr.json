@@ -9,5 +9,18 @@
   "noMatching": "Aucune langue correspondante",
   "github": "GitHub",
   "browseRepo": "Ouvrir le dépôt du langage",
-  "authorityNote": "Les chiffres d’hôte mesurés et les liaisons d’implementation-release restent dans les autorités du dépôt kotoba-lang. Cette page de locale n’invente ni GMV, ni URL de Release du langage, ni comptes d’adoption client."
+  "authorityNote": "Les chiffres d’hôte mesurés et les liaisons d’implementation-release restent dans les autorités du dépôt kotoba-lang. Cette page de locale n’invente ni GMV, ni URL de Release du langage, ni comptes d’adoption client.",
+  "installLabel": "Installer",
+  "installHint": "Installation Homebrew en une ligne. Puis lancer kotoba selfhost check --json en local.",
+  "copy": "Copier",
+  "copied": "Copié",
+  "playTitle": "Play",
+  "playCaption": "Artefact démo lié au digest : le navigateur récupère 344 octets, vérifie SHA-256, refuse tout import, appelle main(). Attendu 42. Pas un compilateur dans le navigateur.",
+  "playRun": "Exécuter",
+  "playReady": "Prêt. Aucun code n’a encore tourné.",
+  "playVerifying": "Vérification de l’artefact…",
+  "playSuccess": "Kotoba a renvoyé {result} · SHA-256 vérifié · 0 import",
+  "playError": "Échec : ",
+  "playDemos": "Démos wasm-webcomponent interactives (pas un compilateur) :",
+  "docs": "Docs"
 }

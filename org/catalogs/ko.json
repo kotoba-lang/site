@@ -9,5 +9,18 @@
   "noMatching": "일치하는 언어 없음",
   "github": "GitHub",
   "browseRepo": "언어 저장소 열기",
-  "authorityNote": "측정된 호스트 수치와 implementation-release 바인딩은 kotoba-lang 저장소 권위에 남습니다. 이 로케일 페이지는 GMV, 언어 Release URL, 고객 견인 수치를 지어내지 않습니다."
+  "authorityNote": "측정된 호스트 수치와 implementation-release 바인딩은 kotoba-lang 저장소 권위에 남습니다. 이 로케일 페이지는 GMV, 언어 Release URL, 고객 견인 수치를 지어내지 않습니다.",
+  "installLabel": "설치",
+  "installHint": "한 줄 Homebrew 설치. 그다음 로컬에서 kotoba selfhost check --json.",
+  "copy": "복사",
+  "copied": "복사됨",
+  "playTitle": "Play",
+  "playCaption": "다이제스트에 묶인 데모 산출물: 브라우저가 344바이트를 가져오고 SHA-256을 검증하며 import를 거부한 뒤 main()을 호출합니다. 기대값 42. 브라우저 안 컴파일러가 아닙니다.",
+  "playRun": "실행",
+  "playReady": "준비됨. 아직 코드가 실행되지 않았습니다.",
+  "playVerifying": "산출물 검증 중…",
+  "playSuccess": "Kotoba가 {result}를 반환 · SHA-256 검증 · import 0",
+  "playError": "실행할 수 없음: ",
+  "playDemos": "대화형 wasm-webcomponent 데모(컴파일러 아님):",
+  "docs": "문서"
 }

@@ -9,5 +9,18 @@
   "noMatching": "जुळणारी भाषा नाही",
   "github": "GitHub",
   "browseRepo": "भाषा रिपॉझिटरी उघडा",
-  "authorityNote": "मोजलेली होस्ट आकडेवारी आणि implementation-release बाइंडिंग kotoba-lang रिपॉझिटरी अधिकारात राहतात. हे लोकैल पृष्ठ GMV, भाषा Release URL किंवा ग्राहक-ट्रॅक्शन संख्या शोधून काढत नाही."
+  "authorityNote": "मोजलेली होस्ट आकडेवारी आणि implementation-release बाइंडिंग kotoba-lang रिपॉझिटरी अधिकारात राहतात. हे लोकैल पृष्ठ GMV, भाषा Release URL किंवा ग्राहक-ट्रॅक्शन संख्या शोधून काढत नाही.",
+  "installLabel": "इंस्टॉल",
+  "installHint": "एक-ओळ Homebrew इंस्टॉल. नंतर स्थानिक kotoba selfhost check --json चालवा.",
+  "copy": "कॉपी",
+  "copied": "कॉपी झाले",
+  "playTitle": "Play",
+  "playCaption": "डायजेस्ट-बद्ध डेमो आर्टिफॅक्ट: ब्राउझर 344 बाइट आणतो, SHA-256 तपासतो, import नाकारतो, main() बोलावतो. अपेक्षित 42. ब्राउझरमधील कंपाइलर नाही.",
+  "playRun": "चालवा",
+  "playReady": "तयार. अद्याप कोड चालला नाही.",
+  "playVerifying": "आर्टिफॅक्ट तपासत आहे…",
+  "playSuccess": "Kotoba ने {result} दिले · SHA-256 तपासले · 0 import",
+  "playError": "चालवता आले नाही: ",
+  "playDemos": "इंटरॅक्टिव wasm-webcomponent डेमो (कंपाइलर नाही):",
+  "docs": "डॉक्स"
 }

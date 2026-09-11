@@ -9,5 +9,18 @@
   "noMatching": "لا توجد لغات مطابقة",
   "github": "GitHub",
   "browseRepo": "افتح مستودع اللغة",
-  "authorityNote": "تبقى الأرقام المقاسة على المضيف وارتباطات إصدار التنفيذ في سلطات مستودع kotoba-lang. لا تختلق هذه الصفحة المحلية رقم GMV أو عنوان Release للغة أو أعداد تبنٍ للعملاء."
+  "authorityNote": "تبقى الأرقام المقاسة على المضيف وارتباطات إصدار التنفيذ في سلطات مستودع kotoba-lang. لا تختلق هذه الصفحة المحلية رقم GMV أو عنوان Release للغة أو أعداد تبنٍ للعملاء.",
+  "installLabel": "تثبيت",
+  "installHint": "تثبيت Homebrew بسطر واحد. ثم شغّل kotoba selfhost check --json محليًا.",
+  "copy": "نسخ",
+  "copied": "تم النسخ",
+  "playTitle": "Play",
+  "playCaption": "قطعة تجريبية مربوطة بالملخص: المتصفح يجلب 344 بايت، يتحقق من SHA-256، يرفض أي import، ويستدعي main(). المتوقع 42. ليست مُصرِّفًا داخل المتصفح.",
+  "playRun": "تشغيل",
+  "playReady": "جاهز. لم يُشغَّل أي كود بعد.",
+  "playVerifying": "جارٍ التحقق من القطعة…",
+  "playSuccess": "أعاد Kotoba {result} · تم التحقق من SHA-256 · 0 import",
+  "playError": "تعذر التشغيل: ",
+  "playDemos": "عروض wasm-webcomponent التفاعلية (ليست مترجمًا):",
+  "docs": "التوثيق"
 }

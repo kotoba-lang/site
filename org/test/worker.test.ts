@@ -17,8 +17,14 @@ function assetsEnv(): Env {
         if (path.endsWith("/")) path += "index.html";
         if (path === "/") path = "/index.html";
         try {
-          const body = readFileSync(join(root, path.replace(/^\//, "")), "utf8");
-          return new Response(body, { headers: { "content-type": "text/html; charset=utf-8" } });
+          const file = join(root, path.replace(/^\//, ""));
+          const body = readFileSync(file);
+          const type = path.endsWith(".wasm")
+            ? "application/wasm"
+            : path.endsWith(".html")
+              ? "text/html; charset=utf-8"
+              : "application/octet-stream";
+          return new Response(body, { headers: { "content-type": type } });
         } catch {
           return new Response("not found", { status: 404 });
         }
@@ -48,6 +54,9 @@ describe("Worker negotiate before static cache pin", () => {
     assert.equal(res.status, 200);
     assert.ok(body.includes('<html lang="id"'));
     assert.ok(body.includes("Bahasa Indonesia"));
+    assert.ok(body.indexOf('id="install"') < body.indexOf("<h1>"));
+    assert.ok(body.indexOf('id="play"') < body.indexOf("<h1>"));
+    assert.ok(body.includes("brew install kotoba"));
     assert.equal(res.headers.get("Content-Language"), "id");
     assert.equal(res.headers.get("CDN-Cache-Control"), "no-store");
     assert.equal(res.headers.get("Cloudflare-CDN-Cache-Control"), "no-store");
@@ -85,6 +94,25 @@ describe("Worker negotiate before static cache pin", () => {
     const res = await handleRequest(request("/jv"), env);
     assert.equal(res.status, 308);
     assert.equal(res.headers.get("Location"), "/jv/");
+  });
+
+  it("passes through the existing Play wasm", async () => {
+    const res = await handleRequest(request("/play/double-21.wasm"), env);
+    assert.equal(res.status, 200);
+    assert.equal(res.headers.get("content-type"), "application/wasm");
+    assert.equal((await res.arrayBuffer()).byteLength, 344);
+  });
+
+  it("serves /play/ and 308-canonicalizes /play so the path is not 404", async () => {
+    const slash = await handleRequest(request("/play/"), env);
+    const body = await slash.text();
+    assert.equal(slash.status, 200);
+    assert.ok(body.includes('id="play"'));
+    assert.ok(body.includes('id="install"'));
+    assert.ok(body.includes("/play/double-21.wasm"));
+    const bare = await handleRequest(request("/play"), env);
+    assert.equal(bare.status, 308);
+    assert.equal(bare.headers.get("Location"), "/play/");
   });
 
   it("lets cookie win over country on /", async () => {

@@ -9,5 +9,18 @@
   "noMatching": "Нет совпадающих языков",
   "github": "GitHub",
   "browseRepo": "Открыть репозиторий языка",
-  "authorityNote": "Измеренные цифры хоста и привязки implementation-release остаются в авторитетах репозитория kotoba-lang. Эта локаль не выдумывает GMV, URL языкового Release или счётчики клиентской тяги."
+  "authorityNote": "Измеренные цифры хоста и привязки implementation-release остаются в авторитетах репозитория kotoba-lang. Эта локаль не выдумывает GMV, URL языкового Release или счётчики клиентской тяги.",
+  "installLabel": "Установка",
+  "installHint": "Однострочная установка Homebrew. Затем локально kotoba selfhost check --json.",
+  "copy": "Копировать",
+  "copied": "Скопировано",
+  "playTitle": "Play",
+  "playCaption": "Демо-артефакт, привязанный к дайджесту: браузер берёт 344 байта, проверяет SHA-256, отвергает import, вызывает main(). Ожидается 42. Это не компилятор в браузере.",
+  "playRun": "Запуск",
+  "playReady": "Готово. Код ещё не выполнялся.",
+  "playVerifying": "Проверка артефакта…",
+  "playSuccess": "Kotoba вернул {result} · SHA-256 проверен · 0 import",
+  "playError": "Не удалось запустить: ",
+  "playDemos": "Интерактивные демо wasm-webcomponent (это не компилятор):",
+  "docs": "Документация"
 }

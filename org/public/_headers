@@ -1,0 +1,15 @@
+# kotoba-lang-org locale pages.
+#
+# Worker kotoba-lang-org negotiates `/` before the static cache pin.
+# These rules apply to locale-prefixed documents only. Do not cache `/`
+# as a single English HIT — the Worker sets CDN-Cache-Control: no-store.
+
+/index.html
+  Cache-Control: private, no-cache
+  CDN-Cache-Control: no-store
+  Vary: Accept-Language, Cookie, CF-IPCountry
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: same-origin
+  X-Frame-Options: SAMEORIGIN

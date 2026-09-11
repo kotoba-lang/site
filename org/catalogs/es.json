@@ -1,0 +1,13 @@
+{
+  "title": "Kotoba — lenguaje seguro y rápido para software generado por IA",
+  "description": "Kotoba está diseñado para software generado por IA seguro y ultrarrápido. Explora el lenguaje, puntos de referencia reproducibles y la pila Kotobase y Kotoba Cloud.",
+  "hero": "Código seguro. Construido para velocidad de máquina.",
+  "noAmbient": "Sin autoridad ambiental",
+  "grantNarrowly": "Conceder de forma limitada, luego compilar",
+  "language": "Idioma",
+  "searchLanguages": "Buscar idiomas",
+  "noMatching": "No hay idiomas coincidentes",
+  "github": "GitHub",
+  "browseRepo": "Abrir el repositorio del lenguaje",
+  "authorityNote": "Las cifras medidas del host y los bindings de implementation-release permanecen en las autoridades del repositorio kotoba-lang. Esta página de locale no inventa GMV, una URL de Release del lenguaje ni recuentos de tracción de clientes."
+}

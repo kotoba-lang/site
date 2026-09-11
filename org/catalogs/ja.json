@@ -1,0 +1,13 @@
+{
+  "title": "Kotoba — AI生成ソフトウェア向けの安全で高速な言語",
+  "description": "Kotoba は安全で超高速なAI生成ソフトウェアのために設計されています。言語、再現可能なベンチマーク、Kotobase と Kotoba Cloud スタックを探検してください。",
+  "hero": "安全なコード。機械速度向けに構築。",
+  "noAmbient": "環境権限なし",
+  "grantNarrowly": "狭く権限を与え、次にコンパイル",
+  "language": "言語",
+  "searchLanguages": "言語を検索",
+  "noMatching": "一致する言語がありません",
+  "github": "GitHub",
+  "browseRepo": "言語リポジトリを開く",
+  "authorityNote": "実測ホスト数値と implementation-release の束縛は kotoba-lang リポジトリの権威ファイルに残します。このロケールページは GMV、言語 Release URL、顧客トラクション数を捏造しません。"
+}

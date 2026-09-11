@@ -1,0 +1,13 @@
+{
+  "title": "Kotoba — safe, fast language for AI-generated software",
+  "description": "Kotoba is designed for safe, ultra-fast AI-generated software. Explore the language, reproducible benchmarks, and the Kotobase and Kotoba Cloud stack.",
+  "hero": "Safe code. Built for machine speed.",
+  "noAmbient": "No ambient authority",
+  "grantNarrowly": "Grant narrowly, then compile",
+  "language": "Language",
+  "searchLanguages": "Search languages",
+  "noMatching": "No matching languages",
+  "github": "GitHub",
+  "browseRepo": "Open the language repository",
+  "authorityNote": "Measured host figures and implementation-release bindings stay in the kotoba-lang repository authorities. This locale page does not invent GMV, a language Release URL, or customer-traction counts."
+}

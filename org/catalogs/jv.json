@@ -1,0 +1,13 @@
+{
+  "title": "Kotoba — basa aman lan cepet kanggo piranti alus gawéan AI",
+  "description": "Kotoba dirancang kanggo piranti alus gawéan AI sing aman lan banter banget. Telusuri basane, patokan sing bisa direproduksi, lan tumpukan Kotobase lan Kotoba Cloud.",
+  "hero": "Kode aman. Dibangun kanggo kacepetan mesin.",
+  "noAmbient": "Ora ana wewenang ambien",
+  "grantNarrowly": "Wenehake kanthi sempit, banjur kompilasi",
+  "language": "Basa",
+  "searchLanguages": "Golek basa",
+  "noMatching": "Ora ana basa sing cocog",
+  "github": "GitHub",
+  "browseRepo": "Bukak gudang basa",
+  "authorityNote": "Angka host sing diukur lan binding implementation-release tetep ing otoritas gudang kotoba-lang. Kaca locale iki ora ngarang GMV, URL Release basa, utawa cacahe traksi pelanggan."
+}

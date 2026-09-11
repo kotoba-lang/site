@@ -1,0 +1,13 @@
+{
+  "title": "Kotoba — sichere, schnelle Sprache für KI-generierte Software",
+  "description": "Kotoba ist für sichere, ultraschnelle KI-generierte Software konzipiert. Erkunde die Sprache, reproduzierbare Benchmarks und den Kotobase und Kotoba Cloud Stack.",
+  "hero": "Sicherer Code. Entwickelt für Maschinengeschwindigkeit.",
+  "noAmbient": "Keine Umgebungsautorität",
+  "grantNarrowly": "Eng gewähren, dann kompilieren",
+  "language": "Sprache",
+  "searchLanguages": "Sprachen suchen",
+  "noMatching": "Keine passenden Sprachen",
+  "github": "GitHub",
+  "browseRepo": "Sprach-Repository öffnen",
+  "authorityNote": "Gemessene Host-Zahlen und Implementation-Release-Bindungen bleiben in den Autoritäten des kotoba-lang-Repositorys. Diese Locale-Seite erfindet kein GMV, keine Sprach-Release-URL und keine Kunden-Traktionszahlen."
+}

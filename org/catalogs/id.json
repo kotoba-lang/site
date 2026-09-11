@@ -1,0 +1,13 @@
+{
+  "title": "Kotoba — bahasa aman dan cepat untuk perangkat lunak yang dihasilkan AI",
+  "description": "Kotoba dirancang untuk perangkat lunak yang dihasilkan AI yang aman dan sangat cepat. Jelajahi bahasa, tolok ukur yang dapat direproduksi, dan tumpukan Kotobase dan Kotoba Cloud.",
+  "hero": "Kode aman. Dibangun untuk kecepatan mesin.",
+  "noAmbient": "Tidak ada otoritas ambien",
+  "grantNarrowly": "Berikan secara sempit, lalu kompilasi",
+  "language": "Bahasa",
+  "searchLanguages": "Cari bahasa",
+  "noMatching": "Tidak ada bahasa yang cocok",
+  "github": "GitHub",
+  "browseRepo": "Buka repositori bahasa",
+  "authorityNote": "Angka host yang diukur dan binding implementation-release tetap di otoritas repositori kotoba-lang. Halaman locale ini tidak mengada-ada GMV, URL Release bahasa, atau jumlah traksi pelanggan."
+}

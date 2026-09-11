@@ -1,0 +1,13 @@
+{
+  "title": "Kotoba — 用于 AI 生成软件的安全快速语言",
+  "description": "Kotoba 设计用于安全、超快的 AI 生成软件。探索语言、可复现基准及 Kotobase 和 Kotoba Cloud 堆栈。",
+  "hero": "安全代码。为机器速度构建。",
+  "noAmbient": "无环境权限",
+  "grantNarrowly": "先授予权限，再编译",
+  "language": "语言",
+  "searchLanguages": "搜索语言",
+  "noMatching": "无匹配语言",
+  "github": "GitHub",
+  "browseRepo": "打开语言仓库",
+  "authorityNote": "实测主机数字与实现发布绑定仍以 kotoba-lang 仓库权威文件为准。本语言页不编造 GMV、语言 Release URL 或客户采用数量。"
+}

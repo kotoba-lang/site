@@ -4,6 +4,10 @@
  * Negotiate locale on the origin BEFORE the static asset cache can pin
  * English on `/`. Locale-prefixed paths stay cacheable; `/` is Vary'd and
  * not stored on the CDN.
+ *
+ * Default English stays on the apex (200, never Location: /). Non-default
+ * locales 307 to `/{tag}/`. Do not ASSETS.fetch `/index.html` — wrangler
+ * html_handling=auto-trailing-slash 307s that to `/` and loops.
  */
 
 import { DEFAULT_LOCALE, localeFromPath, localePath } from "./locales.ts";
@@ -64,6 +68,26 @@ function withLocale(response: Response, tag: string, negotiated: boolean, setCoo
   });
 }
 
+/** True when Location would send the client back to the request path (loop). */
+export function isSelfLocation(location: string, requestUrl: URL): boolean {
+  try {
+    const dest = new URL(location, requestUrl);
+    const destPath = dest.pathname || "/";
+    const requestPath = requestUrl.pathname || "/";
+    return dest.origin === requestUrl.origin && destPath === requestPath;
+  } catch {
+    return location === requestUrl.pathname;
+  }
+}
+
+function negotiatedRedirect(destPath: string, tag: string, setCookie: boolean): Response {
+  const headers = new Headers(varyHeaders(true));
+  headers.set("Location", destPath);
+  headers.set("Content-Language", tag);
+  if (setCookie) headers.append("Set-Cookie", cookieHeader(tag));
+  return new Response(null, { status: 307, headers });
+}
+
 export async function handleRequest(request: IncomingRequest, env: Env): Promise<Response> {
   const url = new URL(request.url);
   const { pathname } = url;
@@ -113,10 +137,25 @@ export async function handleRequest(request: IncomingRequest, env: Env): Promise
   });
 
   const destPath = localePath(decided.tag, "/");
-  const assetUrl = new URL(destPath === "/" ? "/index.html" : `${destPath}index.html`, url);
-  const assetRequest = new Request(assetUrl, request);
+  const setCookie = decided.tag !== DEFAULT_LOCALE || decided.source !== "default";
+
+  // English is the apex document at `/`. localePath("en") is `/` (or `/en/`
+  // collapsing to `/`). Redirecting GET / there 307-loops: CF assets
+  // html_handling=auto-trailing-slash turns `/index.html` into Location: /.
+  // Only redirect when the negotiated tag has a distinct prefix path.
+  if (
+    decided.tag !== DEFAULT_LOCALE &&
+    destPath !== pathname &&
+    destPath !== "/" &&
+    !isSelfLocation(destPath, url)
+  ) {
+    return negotiatedRedirect(destPath, decided.tag, setCookie);
+  }
+
+  // Fetch `/`, never `/index.html`, so ASSETS cannot 307 Location: /.
+  const assetRequest = pathname === "/" ? request : new Request(new URL("/", url), request);
   const asset = await env.ASSETS.fetch(assetRequest);
-  return withLocale(asset, decided.tag, true, decided.tag !== DEFAULT_LOCALE || decided.source !== "default");
+  return withLocale(asset, decided.tag, true, setCookie);
 }
 
 export default {
